@@ -12,10 +12,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Build Swift-DocC
+      - name: Build Swift-DocC into a subdirectory
         run: |
+          mkdir -p .public/swift-book
           xcrun docc convert TSPL.docc \
-          --output-path .public \
+          --output-path .public/swift-book \
           --transform-for-static-hosting \
           --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
@@ -25,4 +26,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .public
-          target_dir: swift-book
