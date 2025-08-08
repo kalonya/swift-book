@@ -1,56 +1,38 @@
-# The Swift Programming Language
+# The Swift Programming Language - Türkçe Çeviri Projesi
 
-This repository contains the source for *The Swift Programming Language*
-(sometimes abbreviated as TSPL),
-which is published on [docs.swift.org][published]
-and built using [Swift-DocC][docc].
+Bu repo, Apple'ın resmi **[The Swift Programming Language][orijinal-repo]** kitabının Türkçe'ye çevrilmesi amacıyla oluşturulmuş bir projedir. Amacımız, Swift'in resmi dokümantasyonunu Türk diline kazandırarak Türkiye'deki Swift topluluğu için güncel ve erişilebilir bir kaynak sunmaktır.
 
-## Contributing
+Kitabın orijinal ve güncel İngilizce versiyonu her zaman [docs.swift.org][orijinal-site] adresinde yayınlanmaktadır ve [Swift-DocC][swift-docc] kullanılarak derlenmektedir.
 
-For small changes,
-like typo fixes and changes to a few paragraphs,
-fork this repository and make a pull request.
+## Projenin Durumu
 
-A formal contribution process for this document is still in development.
-In the meantime,
-start a pitch thread in the [Swift forums][forum] for larger changes
-to discuss your approach and identify possible issues
-before you invest a lot of time in writing.
+**Bu proje aktif olarak çevrilmektedir ve henüz tamamlanmamıştır.**
 
-Content in this book follows [Apple Style Guide][asg]
-and [this book’s style guide][tspl-style].
+Çeviri sürecinde hatalar, eksiklikler veya tutarsızlıklar bulunabilir. Çevirinin kalitesini artırmak için topluluğun geri bildirimleri ve katkıları bizim için çok değerlidir. Nihai hedef, çevirinin tamamlanıp `docs.swift.org.tr` (veya benzeri bir adreste) yayınlanmasıdır.
 
-File bugs about the content using the [issues page][bugs] on Github.
+## Katkıda Bulunma
 
-Discussions and contributions follow the [Swift Code of Conduct][conduct].
+Bu projeye katkıda bulunmak isterseniz çok seviniriz! Yazım hatalarını düzeltmek, çeviri önermek veya yeni bölümleri çevirmek için bir "Pull Request" açabilirsiniz.
 
-For more information, see [Contributing to The Swift Programming Language][contributing].
+Katkıda bulunma süreciyle ilgili daha detaylı bir rehber hazırlanmaktadır. Şimdilik, orijinal projenin [Swift Davranış Kuralları][conduct] belgesine uymanız beklenmektedir.
 
-[asg]: https://help.apple.com/applestyleguide/
-[bugs]: https://github.com/apple/swift-book/issues
+## Kitabı Yerelde Derleme
+
+Çevirinin web sitesi olarak nasıl göründüğünü test etmek için projeyi kendi bilgisayarınızda derleyebilirsiniz. Bu reponun kök dizininde aşağıdaki komutu çalıştırın:
+
+```bash
+docc preview TSPL.docc
+```
+
+DocC'yi çalıştırdıktan sonra, tarayıcınızda yerel bir önizleme görüntülemek için `docc`'nin terminalde verdiği linki açın.
+
+> **Not:**
+>
+> Eğer DocC'yi Swift.org'dan bir toolchain indirerek kurduysanız, `docc` komutu toolchain kurulum yoluna göre `usr/bin/` içinde yer alır. Shell'inizin `PATH` ortam değişkeninin bu dizini içerdiğinden emin olun.
+>
+> Eğer DocC'yi Xcode indirerek kurduysanız, bunun yerine `xcrun docc preview TSPL.docc` komutunu çalıştırın.
+
+[orijinal-repo]: https://github.com/swiftlang/swift-book
+[orijinal-site]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
+[swift-docc]: https://github.com/apple/swift-docc
 [conduct]: https://www.swift.org/code-of-conduct
-[contributing]: /CONTRIBUTING.md
-[forum]: https://forums.swift.org/c/swift-documentation/92
-[tspl-style]: /Style.md
-[published]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
-[docc]: https://github.com/apple/swift-docc
-
-## Building
-
-Run `docc preview TSPL.docc`
-in this repository's root directory.
-
-After running DocC, open the link that `docc` outputs
-to display a local preview in your browser.
-
-> Note:
->
-> If you installed DocC by downloading a toolchain from Swift.org,
-> `docc` is located in `usr/bin/`,
-> relative to the installation path of the toolchain.
-> Make sure your shell's `PATH` environment variable
-> includes that directory.
->
-> If you installed DocC by downloading Xcode,
-> run `xcrun docc preview TSPL.docc` instead.
-
