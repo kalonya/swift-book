@@ -1,36 +1,29 @@
 name: Build and Deploy Swift-DocC Site
 
-# Bu otomasyonun ne zaman çalışacağını belirler:
-# Sadece 'translation-tr' dalına bir push yapıldığında.
 on:
   push:
     branches: [ "translation-tr" ]
 
 jobs:
   build-and-deploy:
-    # Bu işin macOS üzerinde çalışması zorunludur, çünkü xcrun gerekir.
     runs-on: macos-latest
 
     steps:
-      # 1. Adım: Repodaki kodları otomasyonun çalıştığı sanal makineye indirir.
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 2. Adım: xcrun ile swift-docc'yi kullanarak siteyi derler.
-      # Çıktıyı .public adında bir klasöre atar.
       - name: Build Swift-DocC
         run: |
           xcrun docc convert TSPL.docc \
           --output-path .public \
           --transform-for-static-hosting \
+          --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
 
-      # 3. Adım: .public klasörünün içeriğini gh-pages dalına gönderir.
-      # GitHub Pages bu dalı kullanarak siteyi yayınlayacak.
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .public
-          # 'CNAME' dosyası oluşturarak özel alan adını otomatik ayarlar.
           cname: docs.swift.org.tr
+          target_dir: swift-book
