@@ -1,3 +1,5 @@
+**Bu dosya yakında güncellenecektir**
+
 # The Book’s Structure
 
 TSPL is divided into three main parts, plus some front matter,
