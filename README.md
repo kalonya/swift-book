@@ -28,7 +28,7 @@ DocC'yi çalıştırdıktan sonra, tarayıcınızda yerel bir önizleme görünt
 
 > **Not:**
 >
-> Eğer DocC'yi Swift.org'dan bir toolchain indirerek kurduysanız, `docc` komutu toolchain kurulum yoluna göre `usr/bin/` içinde yer alır. Shell'inizin `PATH` ortam değişkeninin bu dizini içerdiğinden emin olun.
+> Eğer DocC'yi Swift.org'dan bir toolchain indirerek kurduysanız, `docc` komutu toolchain kurulum yoluna göre `usr/bin/` içinde yer alır. Kullandığınız Shell'in `PATH` ortam değişkeninin bu dizini içerdiğinden emin olun.
 >
 > Eğer DocC'yi Xcode indirerek kurduysanız, bunun yerine `xcrun docc preview TSPL.docc` komutunu çalıştırın.
 
