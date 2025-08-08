@@ -14,18 +14,16 @@ jobs:
 
       - name: Build Swift-DocC into a subdirectory
         run: |
-          mkdir -p .public/swift-book
           xcrun docc convert TSPL.docc \
-          --output-path .public/swift-book \
+          --output-path .public \
           --transform-for-static-hosting \
           --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
-
-      - name: Create CNAME file
-        run: echo "docs.swift.org.tr" > .public/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .public
+          cname: docs.swift.org.tr
+          destination_dir: swift-book
