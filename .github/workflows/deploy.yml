@@ -21,10 +21,10 @@ jobs:
           --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
 
-      - name: Create CNAME file
-        run: echo "docs.swift.org.tr" > .public/CNAME
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .public
+          cname: docs.swift.org.tr
+          target_dir: swift-book
