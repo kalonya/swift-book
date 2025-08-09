@@ -10,15 +10,15 @@
   @AutomaticArticleSubheading(disabled)
 }
 
-## Konular
+## Topics
 
-### Swift'e Hoş Geldiniz
+### Welcome to Swift
 
 - <doc:AboutSwift>
 - <doc:Compatibility>
 - <doc:GuidedTour>
 
-### Dil Rehberi
+### Language Guide
 
 - <doc:TheBasics>
 - <doc:BasicOperators>
@@ -50,7 +50,7 @@
 - <doc:AccessControl>
 - <doc:AdvancedOperators>
 
-### Dil Referansı
+### Language Reference
 
 - <doc:AboutTheLanguageReference>
 - <doc:LexicalStructure>
@@ -63,7 +63,7 @@
 - <doc:GenericParametersAndArguments>
 - <doc:SummaryOfTheGrammar>
 
-### Revizyon Geçmişi
+### Revision History
 
 - <doc:RevisionHistory>
 
