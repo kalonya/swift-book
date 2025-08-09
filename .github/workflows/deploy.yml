@@ -30,6 +30,8 @@ jobs:
           --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
           echo '<!DOCTYPE html><html lang="tr"><head><title>Yönlendiriliyor...</title><meta http-equiv="refresh" content="0; url=./documentation/the-swift-programming-language/" /></head><body><p>Lütfen bekleyin, kitap sayfasına yönlendiriliyorsunuz...</p></body></html>' > ./_site/swift-book/index.html
+          mkdir -p ./_site/swift-book/documentation
+          echo '<!DOCTYPE html><html lang="tr"><head><title>Yönlendiriliyor...</title><meta http-equiv="refresh" content="0; url=./the-swift-programming-language/" /></head><body><p>Lütfen bekleyin, kitap sayfasına yönlendiriliyorsunuz...</p></body></html>' > ./_site/swift-book/documentation/index.html
           echo "docs.swift.org.tr" > ./_site/CNAME
           touch ./_site/index.html
 
