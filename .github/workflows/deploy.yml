@@ -26,5 +26,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .public
+          keep_files: false
           cname: docs.swift.org.tr
           destination_dir: swift-book
