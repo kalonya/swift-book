@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Prepare Site Content
+      - name: Prepare Site Content and Redirect
         run: |
           mkdir -p ./_site/swift-book
           xcrun docc convert TSPL.docc \
@@ -29,6 +29,7 @@ jobs:
           --transform-for-static-hosting \
           --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
+          echo '<!DOCTYPE html><html lang="tr"><head><title>Yönlendiriliyor...</title><meta http-equiv="refresh" content="0; url=./documentation/the-swift-programming-language/" /></head><body><p>Lütfen bekleyin, kitap sayfasına yönlendiriliyorsunuz...</p></body></html>' > ./_site/swift-book/index.html
           echo "docs.swift.org.tr" > ./_site/CNAME
           touch ./_site/index.html
 
