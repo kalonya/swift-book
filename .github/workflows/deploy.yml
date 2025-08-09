@@ -19,6 +19,9 @@ jobs:
           --transform-for-static-hosting \
           --hosting-base-path swift-book \
           --fallback-display-name "Swift Programlama Dili"
+          
+      - name: Create an empty index.html in the root
+        run: touch .public/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
