@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "translation-tr" ]
 
-# Gerekli izinleri ayarlar
 permissions:
   contents: read
   pages: write
@@ -12,6 +11,10 @@ permissions:
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     runs-on: macos-latest
     
     steps:
