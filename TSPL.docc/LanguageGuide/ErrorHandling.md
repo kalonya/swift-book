@@ -853,7 +853,7 @@ do throws(StatisticsError) {
         print("Invalid rating: \(rating)")
     }
 }
-// Prints "No ratings available"
+// Prints "No ratings available".
 ```
 
 In this code,
@@ -897,7 +897,7 @@ do {
         print("Invalid rating: \(rating)")
     }
 }
-// Prints "No ratings available"
+// Prints "No ratings available".
 ```
 
 Even though the `do`-`catch` block above
@@ -981,12 +981,6 @@ You can use a `defer` statement
 even when no error handling code is involved.
 For more information,
 see <doc:ControlFlow#Deferred-Actions>.
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

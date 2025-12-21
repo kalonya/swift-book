@@ -500,7 +500,7 @@ in the declaration `let x: Int8 = 42`.
 >
 > *literal* → *numeric-literal* | *string-literal* | *regular-expression-literal* | *boolean-literal* | *nil-literal*
 >
-> *numeric-literal* → **`-`**_?_ *integer-literal* | **`-`**_?_ *floating-point-literal* \
+> *numeric-literal* → *signed-integer-literal* | *signed-floating-point-literal* \
 > *boolean-literal* → **`true`** | **`false`** \
 > *nil-literal* → **`nil`**
 
@@ -552,6 +552,7 @@ as described in <doc:TheBasics#Integers>.
 
 > Grammar of an integer literal:
 >
+> *signed-integer-literal* → **`-`**_?_ *integer-literal*
 > *integer-literal* → *binary-literal* \
 > *integer-literal* → *octal-literal* \
 > *integer-literal* → *decimal-literal* \
@@ -626,6 +627,7 @@ which represents a 32-bit floating-point number.
 
 > Grammar of a floating-point literal:
 >
+> *signed-floating-point-literal* → > **`-`**_?_ *floating-point-literal*
 > *floating-point-literal* → *decimal-literal* *decimal-fraction*_?_ *decimal-exponent*_?_ \
 > *floating-point-literal* → *hexadecimal-literal* *hexadecimal-fraction*_?_ *hexadecimal-exponent*
 >
@@ -800,9 +802,9 @@ that create equivalent string values:
 let string = #"\(x) \ " \u{2603}"#
 let escaped = "\\(x) \\ \" \\u{2603}"
 print(string)
-// Prints "\(x) \ " \u{2603}"
+// Prints "\(x) \ " \u{2603}".
 print(string == escaped)
-// Prints "true"
+// Prints "true".
 ```
 
 <!--
@@ -1251,12 +1253,6 @@ see <doc:AdvancedOperators#Operator-Methods>.
 > *infix-operator* → *operator* \
 > *prefix-operator* → *operator* \
 > *postfix-operator* → *operator*
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

@@ -964,11 +964,11 @@ class SomeClass {
 let instance = SomeClass()
 instance.doSomething()
 print(instance.x)
-// Prints "200"
+// Prints "200".
 
 completionHandlers.first?()
 print(instance.x)
-// Prints "100"
+// Prints "100".
 ```
 
 <!--
@@ -1046,7 +1046,7 @@ as discussed in <doc:ClassesAndStructures#Structures-and-Enumerations-Are-Value-
 struct SomeStruct {
     var x = 10
     mutating func doSomething() {
-        someFunctionWithNonescapingClosure { x = 200 }  // Ok
+        someFunctionWithNonescapingClosure { x = 200 }  // OK
         someFunctionWithEscapingClosure { x = 100 }     // Error
     }
 }
@@ -1066,7 +1066,7 @@ struct SomeStruct {
   -> struct SomeStruct {
          var x = 10
          mutating func doSomething() {
-             someFunctionWithNonescapingClosure { x = 200 }  // Ok
+             someFunctionWithNonescapingClosure { x = 200 }  // OK
              someFunctionWithEscapingClosure { x = 100 }     // Error
          }
      }
@@ -1154,16 +1154,16 @@ The code below shows how a closure delays evaluation.
 ```swift
 var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 print(customersInLine.count)
-// Prints "5"
+// Prints "5".
 
 let customerProvider = { customersInLine.remove(at: 0) }
 print(customersInLine.count)
-// Prints "5"
+// Prints "5".
 
 print("Now serving \(customerProvider())!")
 // Prints "Now serving Chris!"
 print(customersInLine.count)
-// Prints "4"
+// Prints "4".
 ```
 
 <!--
@@ -1332,12 +1332,6 @@ which means the closures in the array can be executed after the function returns
 As a result,
 the value of the `customerProvider` argument
 must be allowed to escape the function's scope.
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

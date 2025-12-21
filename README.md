@@ -16,6 +16,15 @@ Bu projeye katkıda bulunmak isterseniz çok seviniriz! Yazım hatalarını düz
 
 Katkıda bulunma süreciyle ilgili daha detaylı bir rehber hazırlanmaktadır. Şimdilik, orijinal projenin [Swift Davranış Kuralları][conduct] belgesine uymanız beklenmektedir.
 
+[asg]: https://help.apple.com/applestyleguide/
+[bugs]: https://github.com/swiftlang/swift-book/issues
+[conduct]: https://www.swift.org/code-of-conduct
+[contributing]: /CONTRIBUTING.md
+[forum]: https://forums.swift.org/c/swift-documentation/92
+[tspl-style]: /Style.md
+[published]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
+[docc]: https://github.com/swiftlang/swift-docc
+
 ## Kitabı Yerelde Derleme
 
 Çevirinin web sitesi olarak nasıl göründüğünü test etmek için projeyi kendi bilgisayarınızda derleyebilirsiniz. Bu reponun kök dizininde aşağıdaki komutu çalıştırın:
@@ -31,8 +40,3 @@ DocC'yi çalıştırdıktan sonra, tarayıcınızda yerel bir önizleme görünt
 > Eğer DocC'yi Swift.org'dan bir toolchain indirerek kurduysanız, `docc` komutu toolchain kurulum yoluna göre `usr/bin/` içinde yer alır. Kullandığınız Shell'in `PATH` ortam değişkeninin bu dizini içerdiğinden emin olun.
 >
 > Eğer DocC'yi Xcode indirerek kurduysanız, bunun yerine `xcrun docc preview TSPL.docc` komutunu çalıştırın.
-
-[orijinal-repo]: https://github.com/swiftlang/swift-book
-[orijinal-site]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
-[swift-docc]: https://github.com/apple/swift-docc
-[conduct]: https://www.swift.org/code-of-conduct

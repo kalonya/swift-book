@@ -58,11 +58,11 @@ The Swift code you compile to make an executable
 can contain at most one of the following approaches
 to mark the top-level entry point,
 regardless of how the code is organized into files and modules:
+a file that contains top-level executable code,
+a `main.swift` file,
 the `main` attribute,
 the `NSApplicationMain` attribute,
-the `UIApplicationMain` attribute,
-a `main.swift` file,
-or a file that contains top-level executable code.
+or the `UIApplicationMain` attribute.
 
 > Grammar of a top-level declaration:
 >
@@ -451,9 +451,9 @@ class New: Superclass {
 }
 let new = New()
 new.x = 100
-// Prints "Setter was called"
-// Prints "Getter was called"
-// Prints "New value 100"
+// Prints "Setter was called".
+// Prints "Getter was called".
+// Prints "New value 100".
 
 // This subclass refers to oldValue in its observer, so the superclass's
 // getter is called once before the setter, and again to print the value.
@@ -464,10 +464,10 @@ class NewAndOld: Superclass {
 }
 let newAndOld = NewAndOld()
 newAndOld.x = 200
-// Prints "Getter was called"
-// Prints "Setter was called"
-// Prints "Getter was called"
-// Prints "Old value 12 - new value 200"
+// Prints "Getter was called".
+// Prints "Setter was called".
+// Prints "Getter was called".
+// Prints "Old value 12 - new value 200".
 ```
 
 <!--
@@ -886,7 +886,7 @@ to mark that the function call can change the argument's value.
 
 ```swift
 var x = 7
-someFunction(&x)
+someFunction(a: &x)
 print(x)  // Prints "8"
 ```
 
@@ -930,7 +930,7 @@ func someFunction(a: inout Int) {
 }
 
 // Error: This causes a runtime exclusivity violation
-someFunction(&someValue)
+someFunction(a: &someValue)
 ```
 
 For the same reason,
@@ -944,7 +944,7 @@ func someFunction(a: inout Int, b: inout Int) {
 }
 
 // Error: Cannot pass the same value to multiple in-out parameters
-someFunction(&someValue, &someValue)
+someFunction(a: &someValue, b: &someValue)
 ```
 
 For more information about memory safety and memory exclusivity,
@@ -3155,7 +3155,7 @@ the specialized version containing the title string is used.
 ```swift
 let oneAndTwo = Pair(first: "one", second: "two")
 oneAndTwo.log()
-// Prints "Pair of 'String': (one, two)"
+// Prints "Pair of 'String': (one, two)".
 ```
 
 <!--
@@ -3181,7 +3181,7 @@ func doSomething<T: Loggable>(with x: T) {
     x.log()
 }
 doSomething(with: oneAndTwo)
-// Prints "(one, two)"
+// Prints "(one, two)".
 ```
 
 <!--
@@ -3238,7 +3238,7 @@ extension Array: Serializable where Element == String {
         // implementation
     }
 }
-// Error: redundant conformance of 'Array<Element>' to protocol 'Serializable'
+// Error: Redundant conformance of 'Array<Element>' to protocol 'Serializable'.
 ```
 
 <!--
@@ -3261,7 +3261,7 @@ extension Array: Serializable where Element == String {
   >>         return 0
   ->     }
      }
-  // Error: redundant conformance of 'Array<Element>' to protocol 'Serializable'
+  // Error: Redundant conformance of 'Array<Element>' to protocol 'Serializable'.
   !$ error: conflicting conformance of 'Array<Element>' to protocol 'Serializable'; there cannot be more than one conformance, even with different conditional bounds
   !! extension Array: Serializable where Element == String {
   !! ^
@@ -3376,7 +3376,7 @@ resulting in an error:
 ```swift
 extension Array: Loggable where Element: TitledLoggable { }
 extension Array: Loggable where Element: MarkedLoggable { }
-// Error: redundant conformance of 'Array<Element>' to protocol 'Loggable'
+// Error: Redundant conformance of 'Array<Element>' to protocol 'Loggable'.
 ```
 
 <!--
@@ -3388,7 +3388,7 @@ extension Array: Loggable where Element: MarkedLoggable { }
   >> protocol TitledLoggable : Loggable { }
   -> extension Array: Loggable where Element: TitledLoggable { }
      extension Array: Loggable where Element: MarkedLoggable { }
-  // Error: redundant conformance of 'Array<Element>' to protocol 'Loggable'
+  // Error: Redundant conformance of 'Array<Element>' to protocol 'Loggable'.
   !$ error: conflicting conformance of 'Array<Element>' to protocol 'Loggable'; there cannot be more than one conformance, even with different conditional bounds
   !! extension Array: Loggable where Element: MarkedLoggable { }
   !! ^
@@ -3983,12 +3983,6 @@ as discussed in <doc:AccessControl#Getters-and-Setters>.
 > *mutation-modifier* → **`mutating`** | **`nonmutating`**
 >
 > *actor-isolation-modifier* → **`nonisolated`**
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

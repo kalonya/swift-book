@@ -56,7 +56,7 @@ var someInt = 3
 var anotherInt = 107
 swapTwoInts(&someInt, &anotherInt)
 print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
-// Prints "someInt is now 107, and anotherInt is now 3"
+// Prints "someInt is now 107, and anotherInt is now 3".
 ```
 
 <!--
@@ -672,7 +672,7 @@ let strings = ["cat", "dog", "llama", "parakeet", "terrapin"]
 if let foundIndex = findIndex(ofString: "llama", in: strings) {
     print("The index of llama is \(foundIndex)")
 }
-// Prints "The index of llama is 2"
+// Prints "The index of llama is 2".
 ```
 
 <!--
@@ -1583,7 +1583,7 @@ extension Container where Item == Double {
     }
 }
 print([1260.0, 1200.0, 98.6, 37.0].average())
-// Prints "648.9"
+// Prints "648.9".
 ```
 
 <!--
@@ -1651,9 +1651,9 @@ extension Container {
 }
 let numbers = [1260, 1200, 98, 37]
 print(numbers.average())
-// Prints "648.75"
+// Prints "648.75".
 print(numbers.endsWith(37))
-// Prints "true"
+// Prints "true".
 ```
 
 <!--
@@ -1996,7 +1996,7 @@ see <doc:Protocols#Implicit-Conformance-to-a-Protocol>.
 Because most types in Swift conform to these protocols,
 writing them almost everywhere would be repetitive.
 Instead, by marking only the exceptions,
-your call out the places that omit a common constraint.
+you call out the places that omit a common constraint.
 To suppress an implicit constraint,
 write the protocol name with a tilde (`~`) in front of it.
 You can read `~Copyable` as "maybe copyable" ---
@@ -2045,12 +2045,6 @@ see the reference for that protocol.
 <!--
   TODO: Describe how Optional<Wrapped> works
 -->
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

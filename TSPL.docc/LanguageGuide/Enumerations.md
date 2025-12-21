@@ -171,7 +171,7 @@ case .east:
 case .west:
     print("Where the skies are blue")
 }
-// Prints "Watch out for penguins"
+// Prints "Watch out for penguins".
 ```
 
 <!--
@@ -221,7 +221,7 @@ case .earth:
 default:
     print("Not a safe place for humans")
 }
-// Prints "Mostly harmless"
+// Prints "Mostly harmless".
 ```
 
 <!--
@@ -255,7 +255,7 @@ enum Beverage: CaseIterable {
 }
 let numberOfChoices = Beverage.allCases.count
 print("\(numberOfChoices) beverages available")
-// Prints "3 beverages available"
+// Prints "3 beverages available".
 ```
 
 <!--
@@ -686,7 +686,7 @@ if let somePlanet = Planet(rawValue: positionToFind) {
 } else {
     print("There isn't a planet at position \(positionToFind)")
 }
-// Prints "There isn't a planet at position 11"
+// Prints "There isn't a planet at position 11".
 ```
 
 <!--
@@ -824,7 +824,7 @@ func evaluate(_ expression: ArithmeticExpression) -> Int {
 }
 
 print(evaluate(product))
-// Prints "18"
+// Prints "18".
 ```
 
 <!--
@@ -853,12 +853,6 @@ It evaluates an addition or multiplication
 by evaluating the expression on the left-hand side,
 evaluating the expression on the right-hand side,
 and then adding them or multiplying them.
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

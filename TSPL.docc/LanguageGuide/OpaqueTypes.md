@@ -373,9 +373,9 @@ that includes a special case for squares:
 ```swift
 func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
     if shape is Square {
-        return shape // Error: return types don't match
+        return shape // Error: Return types don't match.
     }
-    return FlippedShape(shape: shape) // Error: return types don't match
+    return FlippedShape(shape: shape) // Error: Return types don't match.
 }
 ```
 
@@ -395,18 +395,18 @@ func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
   >> }
   -> func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
          if shape is Square {
-             return shape // Error: return types don't match
+             return shape // Error: Return types don't match.
          }
-         return FlippedShape(shape: shape) // Error: return types don't match
+         return FlippedShape(shape: shape) // Error: Return types don't match.
      }
   !$ error: function declares an opaque return type 'some Shape', but the return statements in its body do not have matching underlying types
   !! func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
   !!      ^                                    ~~~~~~~~~~
   !$ note: return statement has underlying type 'T'
-  !! return shape // Error: return types don't match
+  !! return shape // Error: Return types don't match.
   !! ^
   !$ note: return statement has underlying type 'FlippedShape<T>'
-  !! return FlippedShape(shape: shape) // Error: return types don't match
+  !! return FlippedShape(shape: shape) // Error: Return types don't match.
   !! ^
   ```
 -->
@@ -616,7 +616,7 @@ For example:
 if let downcastTriangle = vertical.shapes[0] as? Triangle {
     print(downcastTriangle.size)
 }
-// Prints "5"
+// Prints "5".
 ```
 
 For more information, see <doc:TypeCasting#Downcasting>.
@@ -860,7 +860,7 @@ func makeOpaqueContainer<T>(item: T) -> some Container {
 let opaqueContainer = makeOpaqueContainer(item: 12)
 let twelve = opaqueContainer[0]
 print(type(of: twelve))
-// Prints "Int"
+// Prints "Int".
 ```
 
 <!--
@@ -921,6 +921,7 @@ which means that the type of `twelve` is also inferred to be `Int`.
   }
 -->
 
+
 ## Opaque Parameter Types
 
 In addition to writing `some` to return an opaque type,
@@ -980,12 +981,6 @@ a generic `where` clause or any same-type (`==`) constraints.
 In addition,
 using the lightweight syntax for very complex constraints
 can be hard to read.
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

@@ -97,8 +97,12 @@ indicates the macro's role:
   on an extension, a type alias, or a type that's nested inside a function,
   or use an extension macro to add an extension that has a peer macro.
 
-The peer, member, and accessor macro roles require a `names:` argument,
+The peer and member macro roles require a `names:` argument,
 listing the names of the symbols that the macro generates.
+The accessor macro role requires a `names:` argument if the
+macro generates a `willSet` or `didSet` property observer. An
+accessor macro that generates property observers can't add
+other accessors, because observers only apply to stored properties.
 The extension macro role also requires a `names:` argument
 if the macro adds declarations inside the extension.
 When a macro declaration includes the `names:` argument,
@@ -535,10 +539,10 @@ let dial = TelephoneExchange()
 
 // Use a dynamic method call.
 dial(4, 1, 1)
-// Prints "Get Swift help on forums.swift.org"
+// Prints "Get Swift help on forums.swift.org".
 
 dial(8, 6, 7, 5, 3, 0, 9)
-// Prints "Unrecognized number"
+// Prints "Unrecognized number".
 
 // Call the underlying method directly.
 dial.dynamicallyCall(withArguments: [4, 1, 1])
@@ -725,12 +729,12 @@ let s = DynamicStruct()
 // Use dynamic member lookup.
 let dynamic = s.someDynamicMember
 print(dynamic)
-// Prints "325"
+// Prints "325".
 
 // Call the underlying subscript directly.
 let equivalent = s[dynamicMember: "someDynamicMember"]
 print(dynamic == equivalent)
-// Prints "true"
+// Prints "true".
 ```
 
 <!--
@@ -800,6 +804,28 @@ print(wrapper.x)
   << 381
   ```
 -->
+
+### export
+
+Apply this attribute to a function or method declaration
+to control how its definition is exported to client modules.
+Include one of the following arguments,
+indicating what aspect of the declaration to export:
+
+- The `interface` argument specifies that
+  only the interface is exported to clients,
+  in the form of a callable symbol.
+  The definition (function body) isn't available to clients
+  for inlining, optimization, or any other purpose.
+  Use this argument to hide the implementation from clients.
+
+- The `implementation` argument specifies that
+  only the definition (function body) is exported to clients.
+  There's no symbol for this function emitted into the binary,
+  and clients are responsible for emitting a copy of the definition
+  wherever it's required.
+  Use this argument to introduce a new function or method
+  without affecting the Application Binary Interface (ABI).
 
 ### freestanding
 
@@ -1002,7 +1028,7 @@ which provides a shared instance of an actor.
 A global actor generalizes the concept of actor isolation
 to state that's spread out in several different places in code ---
 such as multiple types, files, and modules ---
-and makes it possible to safely assess global variables from concurrent code.
+and makes it possible to safely access global variables from concurrent code.
 The actor that the global actor provides
 as the value of its `shared` property
 serializes access to all this state.
@@ -1215,7 +1241,7 @@ for a method marked with the `objc` attribute.
 > This attribute is deprecated;
 > use the <doc:Attributes#main> attribute instead.
 > In Swift 6,
-> using this attribute will be an error.
+> using this attribute produces a compile-time error.
 
 Apply this attribute to a class
 to indicate that it's the app delegate.
@@ -2494,7 +2520,7 @@ The imported module must be compiled with testing enabled.
 > This attribute is deprecated;
 > use the <doc:Attributes#main> attribute instead.
 > In Swift 6,
-> using this attribute will be an error.
+> using this attribute produces a compile-time error.
 
 Apply this attribute to a class
 to indicate that it's the app delegate.
@@ -2708,12 +2734,6 @@ see <doc:Statements#Switching-Over-Future-Enumeration-Cases>.
 > *balanced-token* → **`{`** *balanced-tokens*_?_ **`}`** \
 > *balanced-token* → Any identifier, keyword, literal, or operator \
 > *balanced-token* → Any punctuation except  **`(`**,  **`)`**,  **`[`**,  **`]`**,  **`{`**, or  **`}`**
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

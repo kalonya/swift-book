@@ -346,9 +346,9 @@ class LinearCongruentialGenerator: RandomNumberGenerator {
 }
 let generator = LinearCongruentialGenerator()
 print("Here's a random number: \(generator.random())")
-// Prints "Here's a random number: 0.3746499199817101"
+// Prints "Here's a random number: 0.3746499199817101".
 print("And another one: \(generator.random())")
-// Prints "And another one: 0.729023776863283"
+// Prints "And another one: 0.729023776863283".
 ```
 
 <!--
@@ -1091,7 +1091,7 @@ Any `Dice` instance can now be treated as `TextRepresentable`:
 ```swift
 let d12 = Dice(sides: 12, generator: LinearCongruentialGenerator())
 print(d12.textualDescription)
-// Prints "A 12-sided dice"
+// Prints "A 12-sided dice".
 ```
 
 <!--
@@ -1114,7 +1114,7 @@ extension SnakesAndLadders: TextRepresentable {
     }
 }
 print(game.textualDescription)
-// Prints "A game of Snakes and Ladders with 25 squares"
+// Prints "A game of Snakes and Ladders with 25 squares".
 ```
 
 <!--
@@ -1155,7 +1155,7 @@ extension Array: TextRepresentable where Element: TextRepresentable {
 }
 let myDice = [d6, d12]
 print(myDice.textualDescription)
-// Prints "[A 6-sided dice, A 12-sided dice]"
+// Prints "[A 6-sided dice, A 12-sided dice]".
 ```
 
 <!--
@@ -1210,7 +1210,7 @@ Instances of `Hamster` can now be used wherever `TextRepresentable` is the requi
 let simonTheHamster = Hamster(name: "Simon")
 let somethingTextRepresentable: TextRepresentable = simonTheHamster
 print(somethingTextRepresentable.textualDescription)
-// Prints "A hamster named Simon"
+// Prints "A hamster named Simon".
 ```
 
 <!--
@@ -1356,10 +1356,10 @@ var levels = [SkillLevel.intermediate, SkillLevel.beginner,
 for level in levels.sorted() {
     print(level)
 }
-// Prints "beginner"
-// Prints "intermediate"
-// Prints "expert(stars: 3)"
-// Prints "expert(stars: 5)"
+// Prints "beginner".
+// Prints "intermediate".
+// Prints "expert(stars: 3)".
+// Prints "expert(stars: 5)".
 ```
 
 <!--
@@ -2426,9 +2426,9 @@ without any additional modification.
 ```swift
 let generator = LinearCongruentialGenerator()
 print("Here's a random number: \(generator.random())")
-// Prints "Here's a random number: 0.3746499199817101"
+// Prints "Here's a random number: 0.3746499199817101".
 print("And here's a random Boolean: \(generator.randomBool())")
-// Prints "And here's a random Boolean: true"
+// Prints "And here's a random Boolean: true".
 ```
 
 <!--
@@ -2594,9 +2594,9 @@ and integers conform to `Equatable`,
 
 ```swift
 print(equalNumbers.allEqual())
-// Prints "true"
+// Prints "true".
 print(differentNumbers.allEqual())
-// Prints "false"
+// Prints "false".
 ```
 
 <!--
@@ -2633,12 +2633,6 @@ print(differentNumbers.allEqual())
   Protocol requirements can be marked as @unavailable, but this currently only works if they're also marked as @objc.
   Checking for (and calling) optional implementations via optional binding and closures
 -->
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

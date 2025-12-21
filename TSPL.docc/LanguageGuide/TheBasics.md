@@ -460,7 +460,7 @@ if you want to write multiple separate statements on a single line:
 
 ```swift
 let cat = "🐱"; print(cat)
-// Prints "🐱"
+// Prints "🐱".
 ```
 
 <!--
@@ -477,13 +477,44 @@ let cat = "🐱"; print(cat)
 *Integers* are whole numbers with no fractional component,
 such as `42` and `-23`.
 Integers are either *signed* (positive, zero, or negative)
-or *unsigned* (positive or zero).
-
-Swift provides signed and unsigned integers in 8, 16, 32, and 64 bit forms.
-These integers follow a naming convention similar to C,
-in that an 8-bit unsigned integer is of type `UInt8`,
+or *unsigned* (positive or zero),
+and their maximum and minimum value depends on their *size*
+(the number of bits used to store values).
+The integer types include their size and sign in their names ---
+for example, an 8-bit unsigned integer is of type `UInt8`,
 and a 32-bit signed integer is of type `Int32`.
 Like all types in Swift, these integer types have capitalized names.
+In most cases,
+when you don't need to specify the exact integer size,
+you use the `Int` type described below.
+
+Integer types behave like most arithmetic you do by hand;
+integer math produces results without approximating.
+These characteristics make integers suitable for counting
+and other calculations that represent exact amounts ---
+for example,
+finding the longest line in a text file,
+applying a score multiplier in a game,
+or totaling prices on a receipt.
+
+Although integers don't have a fractional component,
+you can use integers to represent quantities with fractions
+by counting a fractional part.
+For example,
+you can represent $1.23 by storing the number `123`
+in an integer that counts cents.
+This approach is known as *fixed-point math*
+because the decimal point is at a fixed position in the number.
+In the example above,
+the number `123` is understood to have a decimal point
+before the last two digits.
+
+> Note:
+> For calculations in a regulated area like finance or construction,
+> or in a domain that has an expectation of high-precision results,
+> you might need a special-purpose numeric type
+> that implements behaviors such as rounding and truncation,
+> according to that area's requirements.
 
 ### Integer Bounds
 
@@ -509,6 +540,12 @@ let maxValue = UInt8.max  // maxValue is equal to 255, and is of type UInt8
 The values of these properties are of the appropriate-sized number type
 (such as `UInt8` in the example above)
 and can therefore be used in expressions alongside other values of the same type.
+
+Calculations that produce out-of-bounds results,
+like a number larger that the `max` property,
+stop the program's execution instead of storing an invalid result.
+You can explicitly make the operation overflow instead,
+as described in <doc:AdvancedOperators#Overflow-Operators>.
 
 ### Int
 
@@ -543,30 +580,63 @@ which has the same size as the current platform's native word size:
 
 ## Floating-Point Numbers
 
-*Floating-point numbers* are numbers with a fractional component,
+*Floating-point numbers* have a fractional component,
 such as `3.14159`, `0.1`, and `-273.15`.
+Swift provides a variety of floating-point types
+that support different sizes of numbers,
+just like it has different sizes of integers.
+If you don't need to specify an exact size, use `Double`.
+Otherwise,
+use the type that includes the needed size in its name,
+such as `Float16` or `Float80`.
+Following common terminology for floating-point math,
+`Float` uses 32 bits and `Double` uses 64 bits.
+You can also write these types as `Float32` or `Float64`.
+For example,
+graphics code often uses `Float` to match the GPU's fastest data type.
+Some floating-point types are supported only by certain platforms,
+but `Float` and `Double` are available on all platforms.
 
-Floating-point types can represent a much wider range of values than integer types,
-and can store numbers that are much larger or smaller than can be stored in an `Int`.
-Swift provides two signed floating-point number types:
+Floating-point numbers let you work with
+very small and very large numbers,
+but can't represent every possible value in that range.
+Unlike integer calculations,
+which always produce an exact result,
+floating-point math rounds results to the nearest representable number.
+For example,
+when storing the number 10,000 as a `Float`,
+the next largest number you can represent is 10,000.001 ----
+values between these two numbers round to one or the other.
+The space between numbers is also variable;
+there are larger spaces between large numbers
+than between small numbers.
+For example,
+the next `Float` value after 0.001 is 0.0010000002,
+which is smaller than the spacing after 10,000.
 
-- `Double` represents a 64-bit floating-point number.
-- `Float` represents a 32-bit floating-point number.
-
-> Note: `Double` has a precision of at least 15 decimal digits,
-> whereas the precision of `Float` can be as little as 6 decimal digits.
-> The appropriate floating-point type to use depends on the nature and range of
-> values you need to work with in your code.
-> In situations where either type would be appropriate, `Double` is preferred.
-
-<!--
-  TODO: Explicitly mention situations where Float is appropriate,
-  such as when optimizing for storage size of collections?
+<!---
+var n: Float = 10_000
+print(n.nextUp)
+n = 0.001
+print(n.nextUp)
 -->
 
-<!--
-  TODO: mention infinity, -infinity etc.
--->
+Floating-point numbers have values for
+negative zero, infinity, and negative infinity,
+which represent overflow and underflow in calculations.
+They also have include not-a-number (NaN) values
+to represent an invalid or undefined result,
+such as dividing zero by zero.
+This behavior is different from integers,
+which stop the program if they can't represent the result.
+
+If you need the same spacing between all possible values,
+or if the calculations you're doing
+require exact results
+and don't call for the special values listed above,
+a floating-point number might not be the right data type.
+Consider using fixed-point numbers instead,
+as described in <doc:TheBasics#Integers>.
 
 ## Type Safety and Type Inference
 
@@ -1143,9 +1213,9 @@ which you then access as usual:
 ```swift
 let (statusCode, statusMessage) = http404Error
 print("The status code is \(statusCode)")
-// Prints "The status code is 404"
+// Prints "The status code is 404".
 print("The status message is \(statusMessage)")
-// Prints "The status message is Not Found"
+// Prints "The status message is Not Found".
 ```
 
 <!--
@@ -1167,7 +1237,7 @@ when you decompose the tuple:
 ```swift
 let (justTheStatusCode, _) = http404Error
 print("The status code is \(justTheStatusCode)")
-// Prints "The status code is 404"
+// Prints "The status code is 404".
 ```
 
 <!--
@@ -1185,9 +1255,9 @@ access the individual element values in a tuple using index numbers starting at 
 
 ```swift
 print("The status code is \(http404Error.0)")
-// Prints "The status code is 404"
+// Prints "The status code is 404".
 print("The status message is \(http404Error.1)")
-// Prints "The status message is Not Found"
+// Prints "The status message is Not Found".
 ```
 
 <!--
@@ -1220,9 +1290,9 @@ you can use the element names to access the values of those elements:
 
 ```swift
 print("The status code is \(http200Status.statusCode)")
-// Prints "The status code is 200"
+// Prints "The status code is 200".
 print("The status message is \(http200Status.description)")
-// Prints "The status message is OK"
+// Prints "The status message is OK".
 ```
 
 <!--
@@ -1433,7 +1503,7 @@ if let actualNumber = Int(possibleNumber) {
 } else {
     print("The string \"\(possibleNumber)\" couldn't be converted to an integer")
 }
-// Prints "The string "123" has an integer value of 123"
+// Prints "The string "123" has an integer value of 123".
 ```
 
 <!--
@@ -1473,7 +1543,7 @@ if let myNumber = myNumber {
     // Here, myNumber is a non-optional integer
     print("My number is \(myNumber)")
 }
-// Prints "My number is 123"
+// Prints "My number is 123".
 ```
 
 <!--
@@ -1509,7 +1579,7 @@ implicitly uses the same name as the optional value.
 if let myNumber {
     print("My number is \(myNumber)")
 }
-// Prints "My number is 123"
+// Prints "My number is 123".
 ```
 
 <!--
@@ -1546,7 +1616,7 @@ The following `if` statements are equivalent:
 if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secondNumber && secondNumber < 100 {
     print("\(firstNumber) < \(secondNumber) < 100")
 }
-// Prints "4 < 42 < 100"
+// Prints "4 < 42 < 100".
 
 if let firstNumber = Int("4") {
     if let secondNumber = Int("42") {
@@ -1555,7 +1625,7 @@ if let firstNumber = Int("4") {
         }
     }
 }
-// Prints "4 < 42 < 100"
+// Prints "4 < 42 < 100".
 ```
 
 <!--
@@ -2216,12 +2286,6 @@ by one of the switch's other cases.
   In LLDB, 'breakpoint set -E swift' catches when errors are thrown,
   but doesn't stop at assertions.
 -->
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

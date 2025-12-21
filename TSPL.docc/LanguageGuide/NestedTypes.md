@@ -148,7 +148,7 @@ You can use this initializer to initialize a new constant called `theAceOfSpades
 ```swift
 let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)
 print("theAceOfSpades: \(theAceOfSpades.description)")
-// Prints "theAceOfSpades: suit is ♠, value is 1 or 11"
+// Prints "theAceOfSpades: suit is ♠, value is 1 or 11".
 ```
 
 <!--
@@ -191,12 +191,6 @@ let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
 For the example above,
 this enables the names of `Suit`, `Rank`, and `Values` to be kept deliberately short,
 because their names are naturally qualified by the context in which they're defined.
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

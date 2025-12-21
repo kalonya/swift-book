@@ -153,9 +153,9 @@ that name is part of the type.
 
 ```swift
 var someTuple = (top: 10, bottom: 12)  // someTuple is of type (top: Int, bottom: Int)
-someTuple = (top: 4, bottom: 42) // OK: names match
-someTuple = (9, 99)              // OK: names are inferred
-someTuple = (left: 5, right: 5)  // Error: names don't match
+someTuple = (top: 4, bottom: 42) // OK: Names match.
+someTuple = (9, 99)              // OK: Names are inferred.
+someTuple = (left: 5, right: 5)  // Error: Names don't match.
 ```
 
 <!--
@@ -163,11 +163,11 @@ someTuple = (left: 5, right: 5)  // Error: names don't match
 
   ```swifttest
   -> var someTuple = (top: 10, bottom: 12)  // someTuple is of type (top: Int, bottom: Int)
-  -> someTuple = (top: 4, bottom: 42) // OK: names match
-  -> someTuple = (9, 99)              // OK: names are inferred
-  -> someTuple = (left: 5, right: 5)  // Error: names don't match
+  -> someTuple = (top: 4, bottom: 42) // OK: Names match.
+  -> someTuple = (9, 99)              // OK: Names are inferred.
+  -> someTuple = (left: 5, right: 5)  // Error: Names don't match.
   !$ error: cannot assign value of type '(left: Int, right: Int)' to type '(top: Int, bottom: Int)'
-  !! someTuple = (left: 5, right: 5)  // Error: names don't match
+  !! someTuple = (left: 5, right: 5)  // Error: Names don't match.
   !!             ^~~~~~~~~~~~~~~~~~~
   ```
 -->
@@ -1056,7 +1056,7 @@ let someInstance: SomeBaseClass = SomeSubClass()
 // The compile-time type of someInstance is SomeBaseClass,
 // and the runtime type of someInstance is SomeSubClass
 type(of: someInstance).printClassName()
-// Prints "SomeSubClass"
+// Prints "SomeSubClass".
 ```
 
 <!--
@@ -1257,16 +1257,16 @@ class Superclass {
 }
 let x = Superclass()
 print(type(of: x.f()))
-// Prints "Superclass"
+// Prints "Superclass".
 
 class Subclass: Superclass { }
 let y = Subclass()
 print(type(of: y.f()))
-// Prints "Subclass"
+// Prints "Subclass".
 
 let z: Superclass = Subclass()
 print(type(of: z.f()))
-// Prints "Subclass"
+// Prints "Subclass".
 ```
 
 <!--
@@ -1395,12 +1395,6 @@ the expression or one of its subexpressions.
   TODO: Email Doug for a list of rules or situations describing when type-inference
   is allowed and when types must be fully typed.
 -->
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project
