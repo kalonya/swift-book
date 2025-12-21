@@ -1,6 +1,7 @@
 .DS_Store
 .docc-build
 .swiftpm
+/preview.sh
 /.build
 /Package.resolved
 /TSPL.docc/header.html
